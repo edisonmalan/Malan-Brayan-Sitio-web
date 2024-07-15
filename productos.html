@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Innovatech Solutions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-content {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Innovatech Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="productos.html">Productos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Nuestros Productos</h1>
+        
+        <!-- Barra de búsqueda -->
+        <form class="form-inline mb-4">
+            <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Buscar productos y servicios" aria-label="Buscar">
+        </form>
+
+        <div class="row" id="productosContainer">
+            <div class="col-md-4 mb-4" id="producto1">
+                <div class="card h-100">
+                    <img src="https://d34vmoxq6ylzee.cloudfront.net/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/z/7z9s5la_1.png" class="card-img-top" alt="Portátil HP 15-fc0004la">
+                    <div class="card-body card-content">
+                        <h5 class="card-title">Portátil HP 15-fc0004la - 15.6" (7Z9S5LA)</h5>
+                       
+                        <a href="#" class="btn btn-primary mt-auto">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" id="producto2">
+                <div class="card h-100">
+                    <img src="https://www.serialcenter.com.py/fotos/src/1_extensor-wifi-tp-link-re200-ac750-dual-band-6037.png?tiempo=1699392401" class="card-img-top" alt="REPETIDOR/EXTENSOR WIFI TP-LINK RE200">
+                    <div class="card-body card-content">
+                        <h5 class="card-title">REPETIDOR/EXTENSOR WIFI TP-LINK RE200 AC750 DUAL BAND</h5>
+                       
+                        <a href="#" class="btn btn-primary mt-auto">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" id="producto3">
+                <div class="card h-100">
+                    <img src="https://xpc.com.ec/clientes/wp-content/uploads/ROUTPLTLWR841HP-3.png" class="card-img-top" alt="Router Tp-Link TL-WR841HP">
+                    <div class="card-body card-content">
+                        <h5 class="card-title">Router Tp-Link TL-WR841HP WiFi 300Mbps</h5>
+                      
+                        <a href="#" class="btn btn-primary mt-auto">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="text-center mb-5">Nuestros Servicios</h1>
+        <div class="row" id="serviciosContainer">
+            <div class="col-md-4 mb-4" id="servicio1">
+                <div class="card h-100">
+                    <img src="https://img.freepik.com/fotos-premium/oficinista-feliz-mostrando-pulgares-arriba-sonriendo-camara_726520-23.jpg" class="card-img-top" alt="Asesoría en Software">
+                    <div class="card-body card-content">
+                        <h5 class="card-title">Asesoría en Software</h5>
+                       
+                        <a href="#" class="btn btn-primary mt-auto">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" id="servicio2">
+                <div class="card h-100">
+                    <img src="https://www.executesystems.com/images/soporte-tecnico-empresas-grande.jpg" class="card-img-top" alt="Soporte Técnico de Equipos">
+                    <div class="card-body card-content">
+                        <h5 class="card-title">Soporte Técnico de Equipos</h5>
+                      
+                        <a href="#" class="btn btn-primary mt-auto">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" id="servicio3">
+                <div class="card h-100">
+                    <img src="https://sevillasistemas.com/wp-content/uploads/2023/11/Que-es-una-instalacion-de-redes.jpg" class="card-img-top" alt="Instalación de Cableado de Red">
+                    <div class="card-body card-content">
+                        <h5 class="card-title">Instalación de Cableado de Red</h5>
+                       
+                        <a href="#" class="btn btn-primary mt-auto">Contratar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Filtrar productos y servicios según la búsqueda
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchText = this.value.toLowerCase();
+            const productos = document.querySelectorAll('#productosContainer .col-md-4');
+            const servicios = document.querySelectorAll('#serviciosContainer .col-md-4');
+
+            productos.forEach(producto => {
+                const nombreProducto = producto.querySelector('.card-title').innerText.toLowerCase();
+                if (nombreProducto.includes(searchText)) {
+                    producto.style.display = 'block';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
+
+            servicios.forEach(servicio => {
+                const nombreServicio = servicio.querySelector('.card-title').innerText.toLowerCase();
+                if (nombreServicio.includes(searchText)) {
+                    servicio.style.display = 'block';
+                } else {
+                    servicio.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

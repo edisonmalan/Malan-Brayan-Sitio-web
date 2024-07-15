@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovatech Solutions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: url('https://static.vecteezy.com/system/resources/previews/000/677/302/non_2x/abstract-technology-banner-background.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-section .content {
+            position: relative;
+            z-index: 2;
+        }
+        .welcome-message {
+            font-size: 1.5rem;
+            color: #007bff;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar {
+            margin: 20px 0;
+        }
+        .search-result {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .search-result img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .search-result:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+        .search-result span {
+            color: black; 
+        }
+        .search-results {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Innovatech Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="productos.html">Productos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron text-center hero-section">
+        <div class="content">
+            <h1 class="display-4">Innovatech Solutions</h1>
+            <p class="lead">Tu mejor opción en productos y servicios.</p>
+            <a class="btn btn-primary btn-lg" href="productos.html" role="button">Ver Productos</a>
+
+            <div class="container mt-5">
+                <div class="row search-bar justify-content-center">
+                    <div class="col-md-6">
+                        <input type="text" id="search" class="form-control" placeholder="Buscar productos y servicios...">
+                        <div id="search-results" class="search-results mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script>
+                const products = [
+                    {
+                        name: 'Portátil HP 15-fc0004la - 15.6" (7Z9S5LA)',
+                        image: 'https://d34vmoxq6ylzee.cloudfront.net/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/z/7z9s5la_1.png',
+                        link: 'productos.html#producto1'
+                    },
+                    {
+                        name: 'REPETIDOR/EXTENSOR WIFI TP-LINK RE200 AC750 DUAL BAND',
+                        image: 'https://www.serialcenter.com.py/fotos/src/1_extensor-wifi-tp-link-re200-ac750-dual-band-6037.png?tiempo=1699392401',
+                        link: 'productos.html#producto2'
+                    },
+                    {
+                        name: 'Router Tp-Link TL-WR841HP WiFi 300Mbps',
+                        image: 'https://xpc.com.ec/clientes/wp-content/uploads/ROUTPLTLWR841HP-3.png',
+                        link: 'productos.html#producto3'
+                    }
+                ];
+        
+                const services = [
+                    {
+                        name: 'Asesoría en Software',
+                        image: 'https://img.freepik.com/fotos-premium/oficinista-feliz-mostrando-pulgares-arriba-sonriendo-camara_726520-23.jpg',
+                        link: 'productos.html#servicio1'
+                    },
+                    {
+                        name: 'Soporte Técnico de Equipos',
+                        image: 'https://www.executesystems.com/images/soporte-tecnico-empresas-grande.jpg',
+                        link: 'productos.html#servicio2'
+                    },
+                    {
+                        name: 'Instalación de Cableado de Red',
+                        image: 'https://sevillasistemas.com/wp-content/uploads/2023/11/Que-es-una-instalacion-de-redes.jpg',
+                        link: 'productos.html#servicio3'
+                    }
+                ];
+        
+                document.getElementById('search').addEventListener('input', function() {
+                    const searchQuery = this.value.toLowerCase();
+                    const resultsContainer = document.getElementById('search-results');
+                    resultsContainer.innerHTML = '';
+                    if (searchQuery) {
+                        const filteredProducts = products.filter(product =>
+                            product.name.toLowerCase().includes(searchQuery)
+                        );
+                        const filteredServices = services.filter(service =>
+                            service.name.toLowerCase().includes(searchQuery)
+                        );
+        
+                        filteredProducts.forEach(product => {
+                            const resultItem = document.createElement('div');
+                            resultItem.classList.add('search-result');
+                            resultItem.innerHTML = `<img src="${product.image}" alt="${product.name}"><span>${product.name}</span>`;
+                            resultItem.addEventListener('click', () => {
+                                window.location.href = product.link;
+                            });
+                            resultsContainer.appendChild(resultItem);
+                        });
+        
+                        filteredServices.forEach(service => {
+                            const resultItem = document.createElement('div');
+                            resultItem.classList.add('search-result');
+                            resultItem.innerHTML = `<img src="${service.image}" alt="${service.name}"><span>${service.name}</span>`;
+                            resultItem.addEventListener('click', () => {
+                                window.location.href = service.link;
+                            });
+                            resultsContainer.appendChild(resultItem);
+                        });
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <div class="welcome-message">
+        ¡Bienvenido a Innovatech Solutions! Tu aliado en tecnología de vanguardia y servicios innovadores.
+    </div>
+
+
+   
+</body>
+</html>
